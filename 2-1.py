@@ -44,7 +44,7 @@ cloud.add('',
 
 cloud.set_global_opts(title_opts=opts.TitleOpts(title="三国人物词云"))
 
-cloud.render('./output/wordcloud_names.html')
+cloud.render('./output/wordcloud_sanguo_names.html')
 print("已生成人物云图，按enter以继续...")
 
 temp = input()
@@ -66,7 +66,7 @@ pie.add('', location[0:10])
 
 pie.set_global_opts(title_opts=opts.TitleOpts(title = "三国地名饼图"))
 
-pie.render('./output/wordcloud_location.html')
+pie.render('./output/wordcloud_sanguo_location.html')
 print("已生成地名饼图，按enter以继续...")
 
 temp = input()
@@ -86,9 +86,9 @@ del weapon[0] #删除csv文件中的标题行
 funnel = Funnel()
 funnel.add('', weapon)
 
-funnel.set_global_opts(title_opts=opts.TitleOpts(title = "三国地名饼图"))
+funnel.set_global_opts(title_opts=opts.TitleOpts(title = "三国武器漏斗图"))
 
-funnel.render('./output/wordcloud_weapon.html')
+funnel.render('./output/wordcloud_sanguo_weapon.html')
 print("已生成地名饼图，按enter以继续...")
 
 temp = input()
