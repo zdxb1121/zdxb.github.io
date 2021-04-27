@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  background: #f1f1f1;
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.button {
+  background-color: #4CAF50; /* 绿色 */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/* 页眉/Blog 标题 */
+.header {
+  padding: 170px;
+  text-align: center;
+  background-image:url("./data/标题背景.jpg");
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  width:100%;
+  height:427px;
+}
+
+.header h1 {
+  font-size: 70px;
+  text-shadow: 0 0 7px #FF0000, 0 0 10px #0000FF;
+}
+.header p {
+  font-size: 50px;
+  text-shadow: 0 0 5px #FF0000;
+}
+
+/* 设置上导航栏的样式 */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* 设置 topnav 链接的样式 */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* 改变鼠标悬停时的颜色 */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* 创建两个不相等的彼此并排的浮动列 */
+/* 左列 */
+.leftcolumn {   
+  float: left;
+  width: 70%;
+}
+
+/* 右列 */
+.rightcolumn {
+  float: left;
+  width: 30%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+/* 伪图像 */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* 为文章添加卡片效果 */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* 清除列之后的浮动 */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* 页脚 */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+/* 响应式布局 - 当屏幕的宽度小于 800 像素时，使两列堆叠而不是并排 */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* 响应式布局 - 当屏幕的宽度小于 400 像素时，使导航链接堆叠而不是并排 */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>文豪野犬</h1>
+  <p>BUNGO STRAY DOGS</p>
+</div>
+
+
+<div class="dropdown">
+  <button class="dropbtn">武装侦探社</button>
+  <div class="dropdown-content">
+  <a href="https://baike.baidu.com/item/%E4%B8%AD%E5%B2%9B%E6%95%A6/16830774?fr=aladdin" target="_blank">中岛 敦</a>
+  <a href="https://baike.baidu.com/item/%E5%A4%AA%E5%AE%B0%E6%B2%BB/16854637?fr=aladdin" target="_blank">太宰 治</a>
+  <a href="https://baike.baidu.com/item/%E5%9B%BD%E6%9C%A8%E7%94%B0%E7%8B%AC%E6%AD%A5/16854642?fr=aladdin" target="_blank">国木田 独步</a>
+  <a href="https://baike.baidu.com/item/%E6%B1%9F%E6%88%B7%E5%B7%9D%E4%B9%B1%E6%AD%A5/18840364?fr=aladdin" target="_blank">江户川 乱步</a>
+  <a href="https://baike.baidu.com/item/%E4%B8%8E%E8%B0%A2%E9%87%8E%E6%99%B6%E5%AD%90/19144632#viewPageContent" target="_blank">与谢野 晶子</a>
+  <a href="https://baike.baidu.com/item/%E5%AE%AB%E6%B3%BD%E8%B4%A4%E6%B2%BB/19667762?fr=aladdin" target="_blank">宫泽 贤治</a>
+  <a href="https://baike.baidu.com/item/%E8%B0%B7%E5%B4%8E%E6%B6%A6%E4%B8%80%E9%83%8E/19667769?fr=aladdin" target="_blank">谷崎 润一郎</a>
+  <a href="https://baike.baidu.com/item/%E8%B0%B7%E5%B4%8E%E7%9B%B4%E7%BE%8E/19669197?fr=aladdin" target="_blank">谷崎 奈绪美</a>
+  <a href="https://baike.baidu.com/item/%E6%B3%89%E9%95%9C%E8%8A%B1/19666471?fr=aladdin" target="_blank">泉 镜花</a>
+  <a href="https://baike.baidu.com/item/%E7%A6%8F%E6%B3%BD%E8%B0%95%E5%90%89/19667776?fr=aladdin" target="_blank">福泽 谕吉</a>
+  </div>
+</div>
+  <div class="dropdown">
+  <button class="dropbtn">港口黑手党</button>
+  <div class="dropdown-content">
+  <a href="https://baike.baidu.com/item/%E8%8A%A5%E5%B7%9D%E9%BE%99%E4%B9%8B%E4%BB%8B/18785664?fr=aladdin" target="_blank">芥川 龙之介</a>
+  <a href="https://baike.baidu.com/item/%E4%B8%AD%E5%8E%9F%E4%B8%AD%E4%B9%9F/18792504?fr=aladdin" target="_blank">中原 中也</a>
+  <a href="https://baike.baidu.com/item/%E5%B0%BE%E5%B4%8E%E7%BA%A2%E5%8F%B6/19751518?fr=aladdin" target="_blank">尾崎 红叶</a>
+  <a href="https://baike.baidu.com/item/%E6%A8%8B%E5%8F%A3%E4%B8%80%E5%8F%B6/19667772?fr=aladdin" target="_blank">樋口 一叶</a>
+  <a href="https://baike.baidu.com/item/%E9%93%B6/19857949?fr=aladdin" target="_blank">银</a>
+  <a href="https://baike.baidu.com/item/%E6%A3%AE%E9%B8%A5%E5%A4%96/23570190?fr=aladdin" target="_blank">森 鸥外</a>
+  <a href="https://baike.baidu.com/item/%E7%88%B1%E4%B8%BD%E4%B8%9D/22594596?fr=aladdin" target="_blank">爱丽丝</a>
+  <a href="https://baike.baidu.com/item/%E6%A2%A6%E9%87%8E%E4%B9%85%E4%BD%9C/23205819?fr=aladdin" target="_blank">梦野 久作</a>
+  <a href="https://baike.baidu.com/item/%E7%BB%87%E7%94%B0%E4%BD%9C%E4%B9%8B%E5%8A%A9/22054720?fr=aladdin" target="_blank">织田 作之助</a>
+  <a href="./data/广津柳浪.jpg" target="_blank">广津 柳浪（仅有图）</a>
+  <a href="./data/立原道造.jpg" target="_blank">立原 道造（仅有图）</a>
+  <a href="./data/兰堂.jpeg" target="_blank">兰堂/阿蒂尔·兰波（仅有图）</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="dropbtn">异能特务科</button>
+  <div class="dropdown-content">
+  <a href="https://baike.baidu.com/item/%E5%9D%82%E5%8F%A3%E5%AE%89%E5%90%BE/23661136?fr=aladdin" target="_blank">坂口 安吾</a>
+  <a href="./data/辻村深月.jpg" target="_blank">辻村 深月（仅有图）</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="dropbtn">组合</button>
+  <div class="dropdown-content">
+  <a href="./data/三社鼎立.jpg" target="_blank">法兰西斯·史考特·基·费兹杰罗（仅有图）</a>
+  <a href="https://baike.baidu.com/item/%E9%9C%B2%E8%A5%BF%C2%B7%E8%8E%AB%E5%BE%B7%C2%B7%E8%92%99%E5%93%A5%E9%A9%AC%E5%88%A9/20119720?fr=aladdin" target="_blank">露西·莫德·蒙哥马利</a>
+  <a href="https://baike.baidu.com/item/%E7%BA%A6%E7%BF%B0%C2%B7%E6%96%AF%E5%9D%A6%E8%B4%9D%E5%85%8B/23569864#viewPageContent" target="_blank">约翰·史坦贝克</a>
+  <a href="https://baike.baidu.com/item/%E9%9C%8D%E5%8D%8E%E5%BE%B7%C2%B7%E8%8F%B2%E5%88%A9%E6%99%AE%C2%B7%E6%B4%9B%E5%A4%AB%E5%85%8B%E6%8B%89%E5%A4%AB%E7%89%B9/23569902?fr=aladdin" target="_blank">霍华德·菲利普斯·洛夫克拉夫特</a>
+  <a href="https://baike.baidu.com/item/%E7%8E%9B%E6%A0%BC%E4%B8%BD%E7%89%B9%C2%B7%E7%B1%B3%E5%88%87%E5%B0%94/23753556?fr=aladdin" target="_blank">玛格丽特·米契尔</a>
+  <a href="https://baike.baidu.com/item/%E9%A9%AC%E5%85%8B%C2%B7%E5%90%90%E6%B8%A9/23569810#viewPageContent" target="_blank">马克·吐温</a>
+  <a href="https://baike.baidu.com/item/%E5%9F%83%E5%BE%B7%E5%8A%A0%C2%B7%E7%88%B1%E4%BC%A6%C2%B7%E5%9D%A1/49809167#viewPageContent" target="_blank">埃德加·爱伦·坡</a> 
+  </div>
+</div>
+<a class="button" href="https://zh.wikipedia.org/wiki/文豪Stray_Dogs"  target="_blank" style="float:right">Wiki For More</a>
+<a class="button" href="https://promo.kadokawa.co.jp/bungo/"  target="_blank" style="float:right">官方网页</a>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>文豪野犬第一季</h2>
+      <h5>播出日期：2016年4月7日</h5>
+      <div><img src="./data/第一季封面.jpg" width=60%></div>
+      <a class="button" href="http://www.imomoe.ai/view/956.html" target="_blank">点击播放</a>
+      <p style="color:Tomato;font-size:10px">！！！播放源为樱花动漫网，请勿相信一切广告弹窗！！！</p>
+      <p style="font-size:15px">简介：中岛敦被赶出孤儿院，即将饿死在横滨时，遇到了投河自尽的太宰治。敦声称自己一直被猛虎追赶，太宰便借机让其协助武装侦探社找寻“食人虎”。最终“食人虎”的真面目令人咋舌，而且此事件的背后竟然隐藏着巨大的阴谋……文豪们的异能力之战，即将打响！</p>
+    </div>
+    <div class="card">
+      <h2>文豪野犬第二季</h2>
+      <h5>播出日期：2016年10月6日</h5>
+      <div><img src="./data/第二季封面.jpg" width=60%></div>
+      <a class="button" href="http://www.imomoe.ai/view/227.html" target="_blank">点击播放</a>
+      <p style="color:Tomato;font-size:10px">！！！播放源为樱花动漫网，请勿相信一切广告弹窗！！！</p>
+      <p style="font-size:15px">简介：中岛敦被赶出孤儿院，即将饿死在横滨时，遇到了投河自尽的太宰治。敦声称自己一直被猛虎追赶，太宰便借机让其协助武装侦探社找寻“食人虎”。最终“食人虎”的真面目令人咋舌，而且此事件的背后竟然隐藏着巨大的阴谋……文豪们的异能力之战，即将打响！</p>
+    </div>
+    <div class="card">
+      <h2>文豪野犬剧场版</h2>
+      <h5>播出日期：2018年3月3日</h5>
+      <div><img src="./data/剧场版封面.jpg" width=30%></div>
+      <a class="button" href="http://www.imomoe.ai/view/6869.html" target="_blank">点击播放</a>
+      <p style="color:Tomato;font-size:10px">！！！播放源为樱花动漫网，请勿相信一切广告弹窗！！！</p>
+      <p style="font-size:15px">简介：《文豪野犬剧场版》讲述制作决定！内容为完全新作。文豪野犬故事以现代横滨为舞台讲述文豪们的超能力战斗！！ 被孤儿院赶出，因为饥饿昏倒在旅途中的少年中岛敦救出了企图自杀的名为太宰治的青年。在听说太宰所属的组织武装侦探社正在追捕为害一方的猛兽食人虎时，敦意外地露出了惊惧的神情食人虎与敦有什么关系？侦探们将如何捕捉它？后续又会有怎样的发展？ 一场引人入胜的故事由此揭开 万般皆注定，身入此镇中</p>
+    </div>
+    <div class="card">
+      <h2>文豪野犬第三季</h2>
+      <h5>播出日期：2019年4月12日</h5>
+      <div><img src="./data/第三季封面.jpg" width=60%></div>
+      <a class="button" href="https://www.bilibili.com/bangumi/play/ep267750?from=search&seid=11693259883485442237" target="_blank">点击播放</a>
+      <p style="font-size:15px">简介：白虎与黑兽——中岛敦与芥川龙之介并肩作战，在与弗朗西斯·F的决战中得胜，与自大国袭来的“组合（Guild）”之间的巨大异能战争宣告结束。“武装侦探社”与“港口黑手党”在此战中缔结的休战协定仍在继续，而从他们引发的毁灭危机中幸存下来的横滨，今天也在路边上演名为日常的物语。但海外犯罪组织流入的传言，以及“组合（Guild）”残党的影子仍在此地若隐若现……。另一方面，太宰治对于“魔人”觉醒、新的灾厄开始感到担忧。在暗渠中蠢蠢欲动的，是盗贼团“死屋之鼠”的头目，费奥多尔·D。其令人恐惧的谋略，终于露出獠牙！</p>
+    </div>
+    <div class="card">
+      <h2>文豪野犬！汪！</h2>
+      <h5>播出日期：2021年1月13日</h5>
+      <div><img src="./data/汪！封面.jpg" width=50%></div>
+      <a class="button" href="https://www.bilibili.com/bangumi/play/ep374368?from=search&seid=11693259883485442237" target="_blank">点击播放</a>
+      <p style="font-size:15px">简介：西化的浪潮冲击之下的架空都市「横滨」中，以旧时文豪为名的人们使用着神秘的「异能力」进行着生死决斗的动作大作「文豪野犬」。哭泣、呐喊、以灵魂互相碰撞，奔走在生与死的界限的「武装侦探社」与「港口黑手党」的角色们居然——变成了可爱的Q版人物，装傻、吐槽，根本停不下来！？搞笑衍生动画，在此开幕！</p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>官方游戏直达！</h2>
+      <div><img src="./data/游戏封面.png" width=100%></div>
+      <a href="http://www.bungo-tales.tw/pc/index.php" target="_blank">《文豪野犬：迷犬怪奇谭》官方网页</a>
+    </div>
+    <div class="card">
+      <h2>#论文豪野犬人设的优秀</h2>
+      <div><img src="./data/专栏封面.png" width=100%></div>
+      <a href="https://www.bilibili.com/read/cv7324201" target="_blank">论文豪野犬人设的优秀——织田作之助</a><br/>
+      <a href="https://www.bilibili.com/read/cv7031413" target="_blank">论文豪野犬人设的优秀——坡</a><br/>
+      <a href="https://www.bilibili.com/read/cv7215770" target="_blank">论文豪野犬人设的优秀——费茨杰拉德</a><br/>
+      <a href="https://www.bilibili.com/read/cv6758568" target="_blank">论文豪野犬人设的优秀——梶井基次郎</a>
+    </div>
+    <div class="card">
+      <div><img src="./data/漫评封面.png" width=100%></div>
+      <h3>【漫评】文豪野犬</h3>
+      <a href="https://www.bilibili.com/read/cv3170185?from=search" target="_blank">直面孤独，致青春的刹那之光</a>
+    </div>
+    <div class="card">
+      <div><img src="./data/壁纸分享封面.png" width=100%></div>
+      <h3>【转载】文豪野犬壁纸</h3>
+      <a href="https://www.bilibili.com/read/cv3668576?from=search" target="_blank">文豪野犬壁纸分享</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>@赵大轩宝pku</h2>
+  <p>素材源自网络，仅供作业使用</p>
+</div>
+
+</body>
+</html>

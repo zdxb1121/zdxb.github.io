@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>搜索一下</title>
+                                <style>
+			.centered
+			{
+				text-align: center;
+			}
+			.highlight_text
+			{
+				color: red;
+				font-style:italic;
+			}	
+			.normal_text
+			{
+				color: black;
+			}
+			.deleted_text
+			{
+				color: grey;
+				text-decoration:line-through;
+			}
+		</style>
+	</head>
+	<body class="centered">
+		<h1>你好！</h1>
+		
+		<p class="highlight_text">饭制搜索引擎！仅供作业使用！</p>
+		
+		<p class="normal_text">这是为了完成作业而整的一个好像是搜索引擎的东西，支持使用三种不同的搜索引擎</p>
+                                
+		<p class="deleted_text">文本内容基本就是抄老师的希望老师谅解</p>
+	
+		<p><a href="http://google.com"><img alt="图片未显示" src="./data/google_logo.png"></a></p>
+		<form action="https://google.com/search" method="get">
+			<input type="text" name="q">
+			<input type="submit" value="谷歌搜索">
+		</form>
+
+		<p><a href="http://bing.com"><img alt="图片未显示" src="./data/bing_logo.jpeg"></a></p>
+		<form action="https://bing.com/search" method="get">
+			<input type="text" name="q">
+			<input type="submit" value="必应搜索">
+		</form>
+
+		<p><a href="http://www.baidu.com"><img alt="图片未显示" src="./data/baidu_logo.png"></a></p>
+		<form action="https://www.baidu.com/s" method="get">
+			<input type="text" name="wd">
+			<input type="submit" value="百度搜索">
+		</form>		
+	</body>
+</html>
