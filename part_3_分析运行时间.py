@@ -4,7 +4,7 @@ import re
 import csv
 from pyecharts import options as opts
 from pyecharts.charts import Bar, Page
-#定义一个
+#定义一个时间戳格式化的函数
 def strf(time):
     lst = re.split("-|/| |]", time)
     if len(lst[1]) != 2:
@@ -46,7 +46,7 @@ def output(timedict, filename):
         else:
             std = 0
         hourdict[_] = [np.mean(hourdict[_]), std]
-    
+    #将结果输出成柱状图
     minbar = (
         Bar()
         .add_xaxis(list(mindict.keys()))
@@ -73,9 +73,9 @@ def output(timedict, filename):
 df = pd.read_csv("../other/爬取运行时间.csv")
 timedict = {strf(_[0]):_[1] for _ in df.values}
 print(len(timedict))
-
+#处理数据，输出
 output(timedict, "全部运行时间")
-
+#根据弹幕数的异常，筛选掉异常的时间戳
 with open("../other/弹幕数.csv", "r") as file:
     reader = csv.reader(file)
     timelist = list(timedict).copy()
@@ -84,4 +84,5 @@ with open("../other/弹幕数.csv", "r") as file:
         if len(set(row)) == 2:
             del timedict[timelist[crow - 1]]
         crow += 1
+#处理数据，输出
 output(timedict, "筛选后的运行时间")

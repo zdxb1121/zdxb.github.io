@@ -12,7 +12,7 @@ def trans(strnum):
         return float(strnum[:-1])*10000
     else:
         return float(strnum)
-
+#从csv中读取出的时间戳格式需要转换成与原始数据格式一致
 def strf(time):
     lst = re.split("-|/| |]", time)
     if len(lst[1]) != 2:
@@ -22,12 +22,13 @@ def strf(time):
     if len(lst[3]) != 8:
         lst[3] = "0" + lst[3]
     return lst[0] + "-" + lst[1] + "-" + lst[2] + " " + lst[3]
-
+#核心的函数，数据的处理和输出
 def output(connect, title):
+    #先将数据库中的数据全部读取出来
     play_list = np.array(pd.read_sql("select * from play", con = connect)).tolist()
     like_list = np.array(pd.read_sql("select * from like", con = connect)).tolist()
     result = {play_list[_][0]:[play_list[_][2:], like_list[_][2:]] for _ in range(len(play_list))}
-    
+    #将同一分钟的数据进行合并，用平均值代替
     mindict = {}
     for _ in result:
         if _[:16] in mindict:
@@ -50,7 +51,7 @@ def output(connect, title):
             mindict[_][0][0][i] = tp/cp if cp != 0 else 0
             mindict[_][0][1][i] = tl/cl if cl != 0 else 0
         mindict[_] = mindict[_][0]
-    
+    #得到每分钟的数据变化，变化细节丰富，但有时不容易看出总体性质和特殊位置
     m = Timeline()
     for _ in title:
         bar = (
@@ -73,7 +74,7 @@ def output(connect, title):
             .set_series_opts(label_opts = opts.LabelOpts(is_show = False))
         )
         mm.add(bar, _)
-        
+    #将同一小时的数据合并，用平均值代替   
     hourdict = {}
     for _ in result:
         if _[:13] in hourdict:
@@ -96,7 +97,7 @@ def output(connect, title):
             hourdict[_][0][0][i] = tp/cp if cp != 0 else 0
             hourdict[_][0][1][i] = tl/cl if cl != 0 else 0
         hourdict[_] = hourdict[_][0]
-    
+    #得到每小时的数据变化，总体趋势明显，有时能显现出一些异常时间点
     h = Timeline()
     for _ in title:
         bar = (
@@ -125,10 +126,10 @@ def output(connect, title):
     pp = Page()
     pp.add(mm,hh)
     pp.render("../web/比值随播放量变化.html")
-    
+#读取数据  
 with open("../other/弹幕数.csv", "r") as file:
     reader = csv.reader(file)
     title = [row for row in reader][0][1:]
-
+#连接数据库，处理数据
 conn = sqlite3.connect("../other/bilibili.db")
 output(conn, title)
